@@ -1,4 +1,4 @@
-# TensorRT-Study
+# TensorRT-Tutorial
 
 ## Introduction
 **TensorRT is a model optimization engine that can help improve deep learning services 
