@@ -76,6 +76,7 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/
   ```
   - xxx
      |__ Dockerfile
+     |__ cuda-keyring_1.0-1_all.deb
      |__ TensorRT-7.2.2.3
   ```
   ```commandline
