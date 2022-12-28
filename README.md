@@ -33,6 +33,10 @@ Unzip the downloaded compressed file to the `TensorRT-7.2.2.3` directory.
 ```commandline
 tar xzvf TensorRT-7.~~~
 ```
+### Download cuda-keyring
+```commandline
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
+```
 ***
 ### Dockerfile
 - Write Dockerfile  
