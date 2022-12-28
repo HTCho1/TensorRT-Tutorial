@@ -40,6 +40,15 @@ tar xzvf TensorRT-7.~~~
   `FROM pytorch/pytorch:1.9.1-cuda11.1-cudnn8-devel`
   + Install Python and deep learning framework  
     ```
+    ARG WORKDIR=/workspace
+    
+    COPY cuda-keyring_1.0-1_all.deb cuda-keyring_1.0-1_all.deb
+    ENV DEBIAN_FRONTEND noninteractive
+    
+    RUN apt-key del 7fa2af80
+    RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+    RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub
+    
     RUN apt-get update
     RUN apt-get install -y vim ffmpeg libsm6 libxext6 git ninja-build libglib2.0-0 libsm6 libxrender-dev libxext6 cython \
             python-dev python3-pip gcc g++ zip unzip curl zlib1g-dev pkg-config python3-mock libpython3-dev libpython3-all-dev \
@@ -49,11 +58,13 @@ tar xzvf TensorRT-7.~~~
         && rm -rf /var/lib/apt/lists/*
 
     RUN pip3 install pip --upgrade
-    RUN pip3 install opencv-python h5py onnx onnxruntime-gpu onnx-simplifier timm tqdm pycuda
+    RUN pip3 install opencv-python h5py onnx onnxruntime-gpu onnx-simplifier timm tqdm pycuda yacs easydict nni
     ```
   + Copy TensorRT directory to Docker
     ```
     COPY TensorRT-7.2.2.3 /TensorRT-7.2.2.3
+    
+    WORKDIR ${WORKDIR}
     ```
   + You can use the uploaded `Dockerfile` without writing above code.
 - Docker build  
