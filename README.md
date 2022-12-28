@@ -80,7 +80,7 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/
      |__ TensorRT-7.2.2.3
   ```
   ```commandline
-  docker build -t tensorrt:7.2.2.3
+  docker build -t tensorrt:7.2.2.3 .
   ```
 - Docker run
   ```commandline
